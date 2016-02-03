@@ -1,0 +1,64 @@
+﻿@model zawya.Models.New
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@*@*<form action="/Admin/UpdateNews" method="post">
+    <input type="hidden" value="@Model.Id" name="id"/>
+    <input type="text"value="@Model.Catagory" name="Catagory" />
+    <input type="text" value="@Model.Summary" name="summary" />
+    <input type="text" value="@Model.date" name="date" />
+    <input type="text" value="@Model.imagePath" name="imagePath" />
+    <input type="submit" />
+</form>*@
+<html>
+<body>
+    <h1 class="center-block">UpdateForm</h1>
+    <div class="row">
+        <form id="form" action="/Admin/UpdateNews" method="post">
+
+            <div class="form-group">
+          
+                <label for="Id" class="col-lg-7 control-label">Id</label>
+                <div class="col-lg-7">
+                    <input type="hidden" class="form-control" id="Id" value="@Model.Id" name="Id" placeholder="Id" required>
+                </div>
+
+                <label for="Catagory" class="col-lg-7 control-label">Catagory</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="Catagory" value="@Model.Catagory" name="Catagory" placeholder="Catagory" required>
+                </div>
+
+
+
+                <label for="imagePath" class="col-lg-7 control-label">imagePath</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="imagePath" value="@Model.imagePath" name="imagePath" placeholder="imagePath" required>
+                </div>
+
+                <label for="Summary" class="col-lg-7 control-label">Summary</label>
+                <div class="form-group col-lg-7">
+                 
+               <input type="text" class="form-control editor-field " id="Summary" name="Summary" value="@Model.Summary" required>
+              
+                </div>
+
+
+                <label for="Date" class="col-lg-7 control-label">Date</label>
+                <div class="col-lg-7">
+                    <input type="text" value="@Model.date" name="Date" class="form-control" id="Date" placeholder="Date">
+                    <br />
+                    <div class="col-lg-2 pull-right ">
+                        <button type="submit" id="button" class="btn btn-primary">Update</button>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+
+    </div>
+</body>
+</html>

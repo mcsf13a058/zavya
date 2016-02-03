@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<html>
+<body>
+    <h2>Signup</h2>
+    <div class="row center-block">
+        <form id="form" action="/Admin/Register" method="post">
+
+            <div class="form-group">
+
+                <label for="FirstName" class="col-lg-7 control-label">FirstName</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="Fname" name="FirstName" placeholder="FirstName" required>
+                </div>
+
+
+
+                <label for="LastName" class="col-lg-7 control-label">LastName</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="Lname" name="LastName" placeholder="LastName" required>
+                </div>
+
+
+                <label for="inputPassword" class="col-lg-7 control-label">Password</label>
+                <div class="col-lg-7">
+                    <input type="password" class="form-control" id="password" name="Password" placeholder="Password" required>
+                </div>
+
+                <label for="inputPassword" class="col-lg-7 control-label">Conform Password</label>
+                <div class="col-lg-7">
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Conform Password" required>
+                </div>
+
+
+                <label for="inputEmail" class="col-lg-7 control-label">Email</label>
+                <div class="col-lg-7">
+                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="jane.doe@example.com" required>
+                </div>
+
+
+                <label for="DOB" class="col-lg-7 control-label">DOB</label>
+                <div class="col-lg-7">
+                    <input type="date" name="DOB" class="form-control" id="DOB" placeholder="DOB">
+                    <br />
+                    <div class="col-lg-2 pull-right ">
+                        <button type="button" id="button" class="btn btn-primary">Register</button>
+                        <button type="submit" id="submit" hidden></button>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+        <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+        <script src="~/Scripts/jquery-1.8.2.intellisense.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#button").click(function (event) {
+                    if ($("#password").val() != $("#confirmPassword").val()) {
+                        alert("Password Doesn't match");
+                    }
+                    else {
+                        $("#submit").click();
+                    }
+                });
+            });
+        </script>
+
+    </div>
+</body>
+</html>

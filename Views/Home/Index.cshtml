@@ -1,0 +1,229 @@
+﻿@using zawya.Models;
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout= "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@{
+    List<New> list = Session["newsList"] as List<New>;
+
+}
+
+
+<!-- Page Content -->
+
+
+<div class="row">
+
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
+
+        <!-- Blog Post -->
+        <!-- Title -->
+        <h1>News With ZAVYA</h1>
+
+        <!-- Author -->
+        <p class="lead">
+            by <a href="#" style="font-family:Adobe Arabic"> ZAVYA </a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+      
+
+        <div class="slide">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    @{
+
+                        var count = 0;
+                    }
+                    @foreach (New n in list)
+                    {
+                 
+
+                        if (count == 0)
+                        {
+                                    <p><span class="glyphicon glyphicon-time"></span> Posted on @n.date</p>
+                            <div class="item active">
+
+                                <img class="img-responsive" src="@n.imagePath">
+                                <div class="carousel-caption">
+                                    <h3 class="slide"> @n.Summary</h3>
+                                </div>
+                               
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="item">
+
+                                <img class="img-responsive" src="@n.imagePath">
+                                <div class="carousel-caption">
+                                    <h3 class="slide"style="color:red"> @n.Summary</h3>
+                                </div>
+                              
+                            </div>
+                        }
+                        count++;
+
+                    }
+
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+        @*<img class="img-responsive" src="~/images/2.jpg" alt="Punjab University Old Campus" width="900" height="300">*@
+
+
+        <!-- Post Content -->
+        <div class="slide">
+            <p class="lead">Today Big News Are ???</p>
+            @foreach (New n in list)
+            {
+                <p class="list-group-item" style="background-color:lightsteelblue">@n.Summary</p>
+            }
+
+            
+            <hr>
+         </div>
+       <div>
+           
+             <!-- Blog Comments -->
+            <!-- Comments Form -->
+            <div class="well">
+                <h4 style="color:black">Leave a Comment:</h4>
+                @*<form role="form">*@
+
+                @*@using (Ajax.BeginForm("PostComment", "Home",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "Post",
+                            UpdateTargetId = "commentBox",
+                            InsertionMode = InsertionMode.InsertBefore
+                        }))
+                {<label>Your Name</label>
+                }*@
+
+                <small> <label>Your Name</label> </small>
+                <small> <input id="name" type="text" name="name" required /> </small>
+                <small> <label>Your Email</label> </small>
+                <small> <input id="email" type="email" name="email" required /> </small>
+                <br />
+
+                <label>content</label>
+
+                <div>
+                    <input class="form-control" id="content" name="content" required>
+                </div>
+                <br />
+                <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+                @*</form>*@
+
+            </div>
+
+            <hr>
+            <!-- Posted Comments -->
+            <!-- Comment -->
+            <div>
+                <div id="commentBox" class="col-md-8" style="background-color:beige;">
+
+                    <label>CommentBox</label>
+                    <script>
+                        $('#submitButton').on('click', function () {
+                            $('#commentBox').load("/Home/PostComment?name=" + $('#name').val() + "&email=" + $('#email').val() + "&content=" + $('#content').val());
+                        });
+                    </script>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- Blog Sidebar Widgets Column -->
+    <div class="col-md-4">
+        <br />
+        <!-- Blog Search Well -->
+        <div class="well">
+            <h4>ZAVYA Search</h4>
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+            <!-- /.input-group -->
+        </div>
+
+        <!-- Blog Categories Well -->
+        <div class="well">
+            <h4>News Categories</h4>
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="~/Home/Entertainment">Entertainment News</a>
+                        </li>
+                        <li>
+                            <a href="~/Home/Sports">Sports News</a>
+                        </li>
+                        <li>
+                            <a href="~/Home/Political">Political News</a>
+                        </li>
+                        <li>
+                            <a href="~/Home/Business">Business News</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="~/Home/International">International Affairs</a>
+                        </li>
+                        <li>
+                            <a href="~/Home/Crime">Crime Reports</a>
+                        </li>
+                        <li>
+                            <a href="~/Home/Inventions">New Inventions</a>
+                        </li>
+                        <li>
+                            <a href="~/Home/Weather">Weather Reports</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+
+        <!-- Side Widget Well -->
+        <div class="well">
+            <h4>Side Widget Well</h4>
+            <p>That window use for silde news </p>
+        </div>
+
+    </div>
+</div>
+<!-- /.row -->

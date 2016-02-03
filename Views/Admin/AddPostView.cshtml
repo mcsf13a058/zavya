@@ -1,0 +1,52 @@
+﻿@model zawya.Models.New
+
+@{
+    ViewBag.Title = "AddPostView";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<html>
+<body>
+    <h1 class="center-block">Add Post</h1>
+    <div class="row">
+        <form id="form" action="/Admin/AddPost" method="post">
+
+            <div class="form-group">
+
+                <label for="Catagory" class="col-lg-7 control-label">Catagory</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="Catagory" name="Catagory" placeholder="Catagory" required>
+                </div>
+
+
+
+                <label for="imagePath" class="col-lg-7 control-label">imagePath</label>
+                <div class="col-lg-7">
+                    <input type="text" class="form-control" id="imagePath" name="imagePath" placeholder="imagePath" required>
+                </div>
+
+                <label for="Summary" class="col-lg-7 control-label">Summary</label>
+                    <div class="form-group col-lg-7">
+                
+                        <textarea class="form-control" rows="5" id="Summary" name="Summary" placeholder="Summary" required></textarea>
+                    </div>
+              
+
+                <label for="Date" class="col-lg-7 control-label">Date</label>
+                <div class="col-lg-7">
+                    <input type="date" name="Date" class="form-control" id="Date" placeholder="Date">
+                    <br />
+                    <div class="col-lg-2 pull-right ">
+                        <button type="submit" id="button" class="btn btn-primary">AddPost</button>
+                      
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+    
+
+    </div>
+</body>
+</html>

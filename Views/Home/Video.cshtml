@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Video";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Video</h2>
+<html>
+<body style="background-color:orange">
+    <script>
+        //$(document).ready(function () {
+        //    $(".various").fancybox({
+        //        maxWidth: 800,
+        //        maxHeight: 600,
+        //        fitToView: false,
+        //        width: '70%',
+        //        height: '70%',
+        //        autoSize: false,
+        //        closeClick: false,
+        //        openEffect: 'none',
+        //        closeEffect: 'none'
+        //    });
+        //});
+        $(document).ready(function () {
+            $('.fancybox-media').fancybox({
+                openEffect: 'none',
+                closeEffect: 'none',
+                helpers: {
+                    media: {}
+                }
+            });
+        });
+    </script>
+
+    @*<script type="text/javascript">
+            $(document).ready(function () {
+                $(".open_ajax").fancybox({ type: 'ajax' });
+            });
+        </script>*@
+    @*<script>
+        $(document).ready(function() {
+        $(".fancybox").fancybox({
+        openEffect	: 'elastic',
+        closeEffect	: 'elastic'
+        });
+        });
+        </script>*@
+    <div style="margin-left:50px">
+        <a class="fancybox" rel="group" href="~/images/Sports/3.jpg"><img width="200px" height="200px" src="~/images/Sports/3.jpg" /></a>
+        <br />
+        <br />
+        <a class="fancybox" rel="group" href="~/images/Sports/3.jpg"><img width="200px" height="200px" src="~/images/Sports/3.jpg" /></a>
+
+        <br />
+        <a class="fancybox fancybox-iframe" href="https://www.youtube.com/embed/watch?v=VxwsBSoenqs">Shared By BLUETECH</a>
+    </div>s
+
+</body>
+</html>

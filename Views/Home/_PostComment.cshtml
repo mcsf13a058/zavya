@@ -1,0 +1,27 @@
+﻿@model IEnumerable<zawya.Models.Comment>
+
+@*<div class="col-md-10" style="height:auto; background-color:antiquewhite; " id="commentBox">
+        <div>
+            <pre>
+            @Model.Content
+          </pre>
+        </div>
+        <div>
+            <small> <label>By @Model.Name At @Model.Date</label> </small>
+        </div>
+    </div>*@
+
+@foreach (var item in Model)
+{
+
+    <div class="media"  id="commentBox">
+
+        <div class="media-body">
+            <h4 class="media-heading">
+                @item.Name
+                <small> At @item.Date </small>
+            </h4>
+            @item.Content
+        </div>
+    </div>
+}

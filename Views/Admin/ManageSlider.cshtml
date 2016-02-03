@@ -1,0 +1,52 @@
+﻿@model zawya.Models.New
+
+@{
+    ViewBag.Title = "ManageSlider";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    @using zawya.Models;
+    @{
+        List<New> list = Session["newsList"] as List<New>;
+
+    }<div class="text-center">
+    <a href="@Url.Action("AddPostView", "Admin")"><i class="fa fa-tasks "></i>AddPost</a>
+    </div>
+    @*<a href="/Admin/AddPost"><i class="fa fa-thumbs-o-down fa-2x"></i>Add Post</a>*@
+    <div id="wrapper">
+        <hr />
+        <div class="container">
+
+
+            @foreach (New n in list)
+            {
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+
+                        <img class="img-responsive" alt="Bootstrap template" src="@n.imagePath" />
+
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <h3>@n.Catagory</h3>
+                        <h4>@n.Id</h4>
+                        <p>
+                            @n.Summary
+                        </p>
+                        <div class="text-center">
+                            <a href="/Admin/DeleteNews/@n.Id"> <i class="fa fa-thumbs-o-up fa-2x"></i> Delete</a>
+                            <a href="/Admin/Update/@n.Id"><i class="fa fa-thumbs-o-down fa-2x"></i>Update</a>
+
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            }
+
+        </div>
+
+    </div>
+</body>
+</html>
